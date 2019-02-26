@@ -32,12 +32,24 @@ public class RockPaperScissorsTest {
     }
 
     @Test
-    public void play_PaperThenScissors_ScissorsBeatsPaper() {
+    public void play_PaperThenScissors_ScissorsBeatPaper() {
         //arange
         RockPaperScissors game = new RockPaperScissors();
 
         //act
         String winner = game.play("paper", SCISSORS);
+
+        //assert
+        assertEquals(SCISSORS, winner);
+    }
+
+    @Test
+    public void play_ScissorsThenPaper_ScissorsBeatPaper() {
+        //arange
+        RockPaperScissors game = new RockPaperScissors();
+
+        //act
+        String winner = game.play(SCISSORS, "paper");
 
         //assert
         assertEquals(SCISSORS, winner);
