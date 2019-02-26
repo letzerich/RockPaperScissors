@@ -7,51 +7,30 @@ import static org.junit.Assert.assertEquals;
 
 public class RockPaperScissorsTest {
 
+    private final RockPaperScissors game = new RockPaperScissors();
+
     @Test
     public void play_RockThenScissors_RockBeatsScissors() {
-        //arange
-        RockPaperScissors game = new RockPaperScissors();
-
-        //act
-        String winner = game.play(ROCK, SCISSORS);
-
-        //assert
-        assertEquals(ROCK, winner);
+        assertEquals(ROCK, game.play(ROCK, SCISSORS));
     }
 
     @Test
     public void play_ScissorsThenRock_RockBeatsScissors() {
-        //arange
-        RockPaperScissors game = new RockPaperScissors();
-
-        //act
-        String winner = game.play(SCISSORS, ROCK);
-
-        //assert
-        assertEquals(ROCK, winner);
+        assertEquals(ROCK, game.play(SCISSORS, ROCK));
     }
 
     @Test
     public void play_PaperThenScissors_ScissorsBeatPaper() {
-        //arange
-        RockPaperScissors game = new RockPaperScissors();
-
-        //act
-        String winner = game.play(PAPER, SCISSORS);
-
-        //assert
-        assertEquals(SCISSORS, winner);
+        assertEquals(SCISSORS, game.play(PAPER, SCISSORS));
     }
 
     @Test
     public void play_ScissorsThenPaper_ScissorsBeatPaper() {
-        //arange
-        RockPaperScissors game = new RockPaperScissors();
+        assertEquals(SCISSORS, game.play(SCISSORS, PAPER));
+    }
 
-        //act
-        String winner = game.play(SCISSORS, PAPER);
-
-        //assert
-        assertEquals(SCISSORS, winner);
+    @Test
+    public void play_PaperThenRock_PaperBeatsRock() {
+        assertEquals(SCISSORS, game.play(SCISSORS, PAPER));
     }
 }
