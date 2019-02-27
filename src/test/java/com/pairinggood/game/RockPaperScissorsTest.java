@@ -38,4 +38,14 @@ public class RockPaperScissorsTest {
     public void play_RockThenPaper_PaperBeatsRock() {
         assertEquals(PAPER, game.play(ROCK, PAPER));
     }
+
+    @Test
+    public void play_RockThenRock_Draw() {
+        assertEquals("draw", game.play(ROCK, ROCK));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void play_PassNullArgument_ThenThrowsException() {
+        game.play(null, null);
+    }
 }
